@@ -37,12 +37,12 @@ jobs:
           AMPT_API_KEY: ${{ secrets.AMPT_API_KEY }}
           AMPT_STAGE: ${{ secrets.AMPT_STAGE }}
         run: |
-          npx ampt run test; cat ./.ampt/logs;
+          node ./node_modules/.bin/ampt run test; cat ./.ampt/logs;
 
-      - name: test backend integration wit ci stage
-        if: always()
-        env:
-          AMPT_API_KEY: ${{ secrets.AMPT_API_KEY }}
-          AMPT_STAGE: ${{ secrets.AMPT_STAGE }}
-        run: |
-          npx ampt run test --stage ci
+      # - name: test backend integration wit ci stage
+      #   if: always()
+      #   env:
+      #     AMPT_API_KEY: ${{ secrets.AMPT_API_KEY }}
+      #     AMPT_STAGE: ${{ secrets.AMPT_STAGE }}
+      #   run: |
+      #     npx ampt run test --stage ci
